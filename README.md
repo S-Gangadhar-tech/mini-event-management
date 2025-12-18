@@ -64,7 +64,7 @@ Follow these steps to run the project in your local development environment:
 ### 1. Clone the Repository
 
 ```bash
-[git clone https://github.com/S-Gangadhar-tech/mini-event-management.git](https://github.com/S-Gangadhar-tech/mini-event-management.git)
+[git clone https://github.com/S-Gangadhar-tech/mini-event-management.git]
 cd mini-event-management
 
 ```
