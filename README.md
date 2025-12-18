@@ -64,8 +64,8 @@ Follow these steps to run the project in your local development environment:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/eventsphere.git
-cd eventsphere
+[git clone https://github.com/S-Gangadhar-tech/mini-event-management.git](https://github.com/S-Gangadhar-tech/mini-event-management.git)
+cd mini-event-management
 
 ```
 
@@ -73,7 +73,7 @@ cd eventsphere
 
 Create a `.env` file in the **root (server)** directory:
 
-```env
+```env server
 PORT=5000
 MONGODB_URI=your_mongodb_uri
 JWT_SECRET=your_jwt_secret
@@ -83,11 +83,16 @@ CLOUDINARY_API_SECRET=your_secret
 FRONTEND_URL=http://localhost:5173
 
 ```
+```env client
+VITE_BACKEND_URL=http://localhost:8080/api/v1.0
+
+```
 
 ### 3. Install Dependencies
 
 ```bash
 # Install Server dependencies
+cd server
 npm install
 
 # Install Client dependencies
@@ -102,10 +107,9 @@ You can run both using `npm run dev` if you have a root `package.json` script, o
 
 ```bash
 # Terminal 1 (Server)
-npm run dev
+npm start
 
 # Terminal 2 (Client)
-cd client
 npm run dev
 
 ```
