@@ -6,9 +6,11 @@ import { ApiError } from "../utils/apiresponse/ApiError.js";
 
 const cookieOptions = {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: 24 * 60 * 60 * 1000 // 1 day
+    // Vercel uses HTTPS by default, so secure must be true for sameSite: 'none'
+    secure: true,
+    // "none" is required if client and server are different Vercel URLs
+    sameSite: "none",
+    maxAge: 24 * 60 * 60 * 1000
 };
 
 // --- Register User ---
