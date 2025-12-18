@@ -4,8 +4,9 @@ import cookieParser from "cookie-parser";
 import cors from "cors"
 
 const app = express();
-app.use(express.json()); // <--- FIX: Enables reading JSON bodies
-app.use(express.urlencoded({ extended: true })); // Fix: Enables reading form data
+// Change these lines in your app.js
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ extended: true, limit: "10mb" }));
 app.use(cookieParser());
 
 app.use(cors({
