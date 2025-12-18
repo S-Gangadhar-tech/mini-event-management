@@ -83,6 +83,8 @@ CLOUDINARY_API_SECRET=your_secret
 FRONTEND_URL=http://localhost:5173
 
 ```
+
+Create a `.env` file in the **root (client)** directory:
 ```env client
 VITE_BACKEND_URL=http://localhost:8080/api/v1.0
 
