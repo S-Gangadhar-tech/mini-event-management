@@ -8,8 +8,7 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET
 });
-
-export const uploadOnCloudinary = async (localFilePath) => {
+const uploadOnCloudinary = async (localFilePath) => {
     try {
         if (!localFilePath) return null;
 
@@ -17,16 +16,15 @@ export const uploadOnCloudinary = async (localFilePath) => {
             resource_type: "auto",
         });
 
-        // Delete local file AFTER successful upload
+        // Sync delete is safer in serverless to ensure it happens before function exits
         if (fs.existsSync(localFilePath)) fs.unlinkSync(localFilePath);
         return response;
     } catch (error) {
-        // Delete local file even if upload fails to save space
+        console.error("Cloudinary Error:", error);
         if (fs.existsSync(localFilePath)) fs.unlinkSync(localFilePath);
         return null;
     }
 };
-
 const deleteFromCloudinary = async (imageUrl) => {
     try {
         if (!imageUrl) return null;
